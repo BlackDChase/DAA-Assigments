@@ -6,7 +6,7 @@
 model = HMM(transmission, emission)
 ```
 ### Emmision probability
-####TABLE
+#### TABLE
 Day| HOT | COLD
 ---|---|---
 Eating 0| 0.1|0.6
