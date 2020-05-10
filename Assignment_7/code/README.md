@@ -54,3 +54,28 @@ new_seq = ['1', '2', '0','2']
 likelihood = model.likelihood(new_seq)
 ```
 
+
+## Another dataset
+### Emission Matrix
+Wear\Day| SUNNY | SNOWY | WINDY | RAINY | CLOUDY
+---     |---    | ---   |---    |---    |---
+Casual  |0.31   |0.2    |0.18   |0.13   |0.5
+Raincoat|0.12   |0.2    |0.29   |0.4    |0.2
+Jacket  |0.06   |0.49   |0.32   |0.35   |0.1
+Briefs  |0.51   |0.11   |0.31   |0.12   |0.2
+
+### Transmmision matrix
+Next Day\Day| SUNNY | SNOWY | WINDY | RAINY | CLOUDY | START
+---         |---    | ---   |---    |---    |---     |---
+SUNNY       |0.31   |0.2    |0.18   |0.13   |0.5     |0.2
+SNOWY       |0.12   |0.2    |0.29   |0.4    |0.2     |0.2
+WINDY       |0.21   |0.49   |0.32   |0.35   |0.1     |0.2
+RAINY       |0.31   |0.11   |0.31   |0.12   |0.2     |0.2
+CLOUDY      |0.26   |0.49   |0.32   |0.35   |0.1     |0.2
+STOP        |0.01   |0.01   |0.01   |0.01   |0.01    |0
+
+- Needs to be checked again
+
+### Observation
+- In `dataset.txt`, genrated randomly by `dataset.py`
+
