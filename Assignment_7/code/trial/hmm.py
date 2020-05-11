@@ -46,12 +46,13 @@ class HMM():
             self.emiss_ref[obs[i]] = i
         return obs
 
-    def train(self, observations, iterations = 10, verbose=True):
+    def train(self, observations, iterations=10, verbose=True):
         '''
         Trains the model parameters according to the observation sequence.
         Input:
         - observations: 1-D string array of T observations
         '''
+        print(iterations)
         self.observations = observations
         self.obs = self.assume_obs()
         self.psi = [[[0.0] * (len(self.observations)-1) for i in range(self.n)] for i in range(self.n)]
@@ -59,8 +60,6 @@ class HMM():
         for i in range(iterations):
             old_transmission = self.transmission_prob.copy()
             old_emission = self.emission_prob.copy()
-            if verbose:
-                print("Iteration: {}".format(i + 1))
             self.expectation()
             self.maximization()
 
@@ -252,10 +251,10 @@ if __name__ == '__main__':
                     '1','2','1','1','1','3','1','2','1','1','1','2','3','3','2',
                     '3','2','2']
     model = HMM(transmission, emission)
-    model.train(observations)
+    model.train(observations,10)
     print("Model transmission probabilities:\n{}".format(model.transmission_prob))
     print("Model emission probabilities:\n{}".format(model.emission_prob))
-    
+
     # Probability of a new sequence
     new_seq = ['1', '2', '0','2']
     print("Finding likelihood for {}".format(new_seq))
